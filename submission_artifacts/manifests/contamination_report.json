@@ -1,0 +1,111 @@
+{
+  "eval_docs": 96,
+  "eval_ngrams": 3198,
+  "flagged": {
+    "code-train-004/84": {
+      "doc_id": "code-train-00596",
+      "eval_doc_id": "code-eval-00006",
+      "overlap": 1.0,
+      "reason": "eval_exact_match"
+    },
+    "instruct-train-000/39": {
+      "doc_id": "instruct-train-00039",
+      "eval_doc_id": "instruct-eval-00002",
+      "overlap": 1.0,
+      "reason": "eval_exact_match"
+    },
+    "instruct-train-001/64": {
+      "doc_id": "instruct-train-00192",
+      "eval_doc_id": "instruct-eval-00012",
+      "overlap": 1.0,
+      "reason": "eval_exact_match"
+    },
+    "instruct-train-005/100": {
+      "doc_id": "instruct-train-00740",
+      "eval_doc_id": "instruct-eval-00001",
+      "overlap": 1.0,
+      "reason": "eval_exact_match"
+    },
+    "instruct-train-005/27": {
+      "doc_id": "instruct-train-00667",
+      "eval_doc_id": "instruct-eval-00003",
+      "overlap": 1.0,
+      "reason": "eval_exact_match"
+    },
+    "instruct-train-010/87": {
+      "doc_id": "instruct-train-01367",
+      "eval_doc_id": "instruct-eval-00000",
+      "overlap": 1.0,
+      "reason": "eval_exact_match"
+    },
+    "web-train-003/15": {
+      "doc_id": "web-train-00399",
+      "eval_doc_id": "web-eval-00001",
+      "overlap": 1.0,
+      "reason": "eval_exact_match"
+    },
+    "web-train-003/27": {
+      "doc_id": "web-train-00411",
+      "eval_doc_id": "web-eval-00000",
+      "overlap": 1.0,
+      "reason": "eval_exact_match"
+    },
+    "web-train-003/41": {
+      "doc_id": "web-train-00425",
+      "overlap": 0.7,
+      "reason": "eval_ngram_overlap"
+    },
+    "web-train-004/101": {
+      "doc_id": "web-train-00613",
+      "eval_doc_id": "web-eval-00004",
+      "overlap": 1.0,
+      "reason": "eval_exact_match"
+    },
+    "web-train-004/27": {
+      "doc_id": "web-train-00539",
+      "eval_doc_id": "web-eval-00005",
+      "overlap": 1.0,
+      "reason": "eval_exact_match"
+    },
+    "web-train-004/7": {
+      "doc_id": "web-train-00519",
+      "overlap": 0.9189,
+      "reason": "eval_ngram_overlap"
+    },
+    "web-train-005/121": {
+      "doc_id": "web-train-00761",
+      "eval_doc_id": "web-eval-00002",
+      "overlap": 1.0,
+      "reason": "eval_exact_match"
+    },
+    "web-train-005/22": {
+      "doc_id": "web-train-00662",
+      "eval_doc_id": "web-eval-00003",
+      "overlap": 1.0,
+      "reason": "eval_exact_match"
+    },
+    "web-train-005/44": {
+      "doc_id": "web-train-00684",
+      "overlap": 0.9302,
+      "reason": "eval_ngram_overlap"
+    },
+    "web-train-007/1": {
+      "doc_id": "web-train-00897",
+      "overlap": 0.7,
+      "reason": "eval_ngram_overlap"
+    },
+    "web-train-007/39": {
+      "doc_id": "web-train-00935",
+      "overlap": 0.9221,
+      "reason": "eval_ngram_overlap"
+    }
+  },
+  "ngram": 16,
+  "ngram_lanes": [
+    "web"
+  ],
+  "overlap_p99_all_train": 0.8545454545454545,
+  "schema": "v5.contamination/1",
+  "threshold": 0.6,
+  "train_docs_scanned": 3263
+}

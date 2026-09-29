@@ -1,0 +1,12 @@
+{
+  "frozen": true,
+  "n_merges": 320,
+  "schema": "v5.tokenizer_lock/1",
+  "tokenizer_sha256": "f64dc137ee2420f3cc40f3b5476ca3e80838a0035256f5e3767d0103e54cfeb9",
+  "trained_on_splits": [
+    "train"
+  ],
+  "training_docs": 3263,
+  "training_text_sha256": "dd2fcffa3a03c3b8f97fd6dc0a9b2002d839d62b9d5f4d8597c0ad4d4bdc68aa",
+  "vocab_size": 580
+}

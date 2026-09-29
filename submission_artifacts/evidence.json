@@ -1,0 +1,1092 @@
+{
+  "artifacts_dir": "submission_artifacts",
+  "generated_by": "v5data.audit.Auditor (re-derived from artifacts on disk)",
+  "overall": "PASS",
+  "requirements": {
+    "crash_recovery": {
+      "checks": [
+        {
+          "detail": "[(1, 137), (2, 0)]",
+          "name": "training_process_actually_died",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "recovery_event_recorded",
+          "passed": true
+        },
+        {
+          "detail": "expected B00041-f9f434d7c3e4 / resumed B00041-f9f434d7c3e4",
+          "name": "resumed_first_batch_equals_checkpoint_expected_batch",
+          "passed": true
+        },
+        {
+          "detail": "orphan steps [41, 42, 43, 44, 45, 46, 47]",
+          "name": "uncommitted_tail_preserved_as_orphans",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "resumed_batches_equal_crashed_attempt_batches",
+          "passed": true
+        },
+        {
+          "detail": "6 completed pre-crash steps compared",
+          "name": "resumed_model_reproduces_crashed_attempt_losses_bitwise",
+          "passed": true
+        },
+        {
+          "detail": "80 batches vs 80 in reference",
+          "name": "whole_stream_equals_uninterrupted_reference_no_skip_no_repeat",
+          "passed": true
+        },
+        {
+          "detail": "{1: 40, 2: 40}",
+          "name": "steps_split_between_attempts_at_checkpoint",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "resume_event_logged_pass",
+          "passed": true
+        }
+      ],
+      "evidence": [
+        {
+          "path": "checkpoints/step_000040/meta.json",
+          "what": "next_batch_expected (lookahead)"
+        },
+        {
+          "path": "ledgers/consumption.jsonl",
+          "what": "step 41 record written by the resumed attempt"
+        },
+        {
+          "path": "ledgers/orphans/attempt1",
+          "what": "uncommitted records of the crashed attempt"
+        },
+        {
+          "path": "reports/reference_stream.json",
+          "what": "uninterrupted data-only reference stream"
+        },
+        {
+          "path": "reports/resume_report.json",
+          "what": "summary"
+        }
+      ],
+      "evidence_label": "Expected and resumed batch ids",
+      "id": "crash_recovery",
+      "metrics": {
+        "attempts": {
+          "1": 40,
+          "2": 40
+        },
+        "checkpoint_step": 40,
+        "crash_step": 47,
+        "expected_next_batch": {
+          "batch_hash": "f9f434d7c3e41ff4084a2b724e2d6880138da4b7dad60ebee5f19fe0c825a9fb",
+          "batch_id": "B00041-f9f434d7c3e4",
+          "layout_sha256": "a1bd1a9181295779509750f0a5b4bcb1d794de1b161004b4e544887433ec6f3b",
+          "step": 41
+        },
+        "resumed_batch": {
+          "batch_hash": "f9f434d7c3e41ff4084a2b724e2d6880138da4b7dad60ebee5f19fe0c825a9fb",
+          "batch_id": "B00041-f9f434d7c3e4"
+        },
+        "rolled_back": [
+          {
+            "head_verified": "6076c1f1ce448afe3c7ef520a21844e62b0edd9f229d4dc52a5335f2fdb398f6",
+            "ledger": "consumption.jsonl",
+            "orphan_file": "ledgers/orphans/attempt1/consumption.jsonl",
+            "orphaned_complete_records": 7,
+            "torn_bytes": 0,
+            "truncated_bytes": 19187
+          },
+          {
+            "head_verified": "a4e8253a17a54b929fe6c8785fc3d2d790f2e7bde76fbbc07be4639fe44af8c7",
+            "ledger": "opus_decisions.jsonl",
+            "orphan_file": "ledgers/orphans/attempt1/opus_decisions.jsonl",
+            "orphaned_complete_records": 176,
+            "torn_bytes": 0,
+            "truncated_bytes": 101725
+          },
+          {
+            "head_verified": "3670cbeb79363441c4f977ea9d4f25b1f0937fc138cd1a5234a970280bf46e41",
+            "ledger": "learning.jsonl",
+            "orphan_file": "ledgers/orphans/attempt1/learning.jsonl",
+            "orphaned_complete_records": 6,
+            "torn_bytes": 1481,
+            "truncated_bytes": 18416
+          },
+          {
+            "head_verified": "daba504051a81c7e2b4cf2ae279b6bd5b04fcae75fb4e3f606bf777e9b471848",
+            "ledger": "validation.jsonl",
+            "orphan_file": null,
+            "orphaned_complete_records": 0,
+            "torn_bytes": 0,
+            "truncated_bytes": 0
+          }
+        ]
+      },
+      "result": "PASS",
+      "title": "Crash recovery"
+    },
+    "end_to_end": {
+      "checks": [
+        {
+          "detail": "missing=[]",
+          "name": "all_pipeline_phases_logged",
+          "passed": true
+        },
+        {
+          "detail": "fails=[]",
+          "name": "no_FAIL_events_in_run_log",
+          "passed": true
+        },
+        {
+          "detail": "80 committed steps",
+          "name": "main_run_completed_all_steps",
+          "passed": true
+        }
+      ],
+      "evidence": [
+        {
+          "path": "run.log",
+          "what": "complete ordered event log from all processes"
+        },
+        {
+          "path": "ledgers/events.jsonl",
+          "what": "machine-readable version of run.log"
+        }
+      ],
+      "evidence_label": "run.log phase events + contiguous ledger",
+      "id": "end_to_end",
+      "metrics": {},
+      "result": "PASS",
+      "title": "End-to-end execution"
+    },
+    "eval_firewall": {
+      "checks": [
+        {
+          "detail": "",
+          "name": "eval_shard_registration_blocked",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "val_shard_registration_blocked",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "held_out_materialization_as_training_blocked",
+          "passed": true
+        },
+        {
+          "detail": "122 consumption records incl. orphans and branches; violations=[]",
+          "name": "no_held_out_token_in_any_loss_bearing_batch",
+          "passed": true
+        },
+        {
+          "detail": "leaked=[]",
+          "name": "no_contaminated_document_consumed",
+          "passed": true
+        },
+        {
+          "detail": "11 contaminated candidates seen",
+          "name": "every_contaminated_candidate_hard_rejected",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "held_out_docs_never_offered_to_opus",
+          "passed": true
+        },
+        {
+          "detail": "4 validation + 2 evaluation records",
+          "name": "held_out_scoring_is_gradient_free_and_non_loss_bearing",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "held_out_scoring_reads_only_held_out_shards",
+          "passed": true
+        }
+      ],
+      "evidence": [
+        {
+          "path": "ledgers/events.jsonl",
+          "what": "eval_shard_blocked / val_shard_blocked events"
+        },
+        {
+          "path": "manifests/contamination_report.json",
+          "what": "train docs flagged against the eval set"
+        },
+        {
+          "path": "ledgers/opus_decisions.jsonl",
+          "what": "REJECT eval_contamination records"
+        },
+        {
+          "path": "ledgers/validation.jsonl",
+          "what": "held-out scoring records (grad=false)"
+        }
+      ],
+      "evidence_label": "Blocked-shard event",
+      "id": "eval_firewall",
+      "metrics": {
+        "by_reason": {
+          "eval_exact_match": 12,
+          "eval_ngram_overlap": 5
+        },
+        "contaminated_candidates_rejected": 11,
+        "contaminated_train_docs_flagged": 17
+      },
+      "result": "PASS",
+      "title": "Evaluation firewall"
+    },
+    "fork": {
+      "checks": [
+        {
+          "detail": "",
+          "name": "fork_report_present",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "branch_shares_verified_history_prefix_with_parent",
+          "passed": true
+        },
+        {
+          "detail": "steps 21..25",
+          "name": "branch_reproduces_parent_batches_before_divergence",
+          "passed": true
+        },
+        {
+          "detail": "steps 26..35",
+          "name": "branch_diverges_under_new_mixture",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "branch_steps_contiguous",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "parent_ledgers_untouched_by_fork",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "branch_consumption_follows_branch_plan",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "branch_checkpoint_saved",
+          "passed": true
+        }
+      ],
+      "evidence": [
+        {
+          "path": "manifests/branches/fork_instruct_heavy/lineage.json",
+          "what": "parent checkpoint + ledger prefix hashes"
+        },
+        {
+          "path": "ledgers/branches/fork_instruct_heavy/",
+          "what": "branch ledgers (parent prefix + branch history)"
+        },
+        {
+          "path": "reports/fork_report.json",
+          "what": "per-step parent vs branch batch ids"
+        }
+      ],
+      "evidence_label": "Branch lineage + ledgers",
+      "id": "fork",
+      "metrics": {
+        "branch": "fork_instruct_heavy",
+        "diverge_at": 26,
+        "diverged_steps": [
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "end_step": 35,
+        "fork_step": 20,
+        "identical_steps": [
+          21,
+          22,
+          23,
+          24,
+          25
+        ]
+      },
+      "result": "PASS",
+      "title": "Fork from earlier checkpoint"
+    },
+    "learning_trace": {
+      "checks": [
+        {
+          "detail": "errors=[]",
+          "name": "every_step_loss_decomposes_into_per_document_losses",
+          "passed": true
+        },
+        {
+          "detail": "first10=5.532 last10=1.346",
+          "name": "model_learned_loss_decreased",
+          "passed": true
+        },
+        {
+          "detail": "[3.14, 1.817, 1.467, 1.374]",
+          "name": "validation_loss_decreased",
+          "passed": true
+        }
+      ],
+      "evidence": [
+        {
+          "path": "ledgers/learning.jsonl",
+          "what": "per-step loss + per-document (row, span) loss sums"
+        },
+        {
+          "path": "ledgers/token_losses/",
+          "what": "token-level loss arrays, hash-pinned by the learning ledger"
+        },
+        {
+          "path": "reports/learning_trace.json",
+          "what": "document -> (step, span, loss) index"
+        }
+      ],
+      "evidence_label": "Loss linked to source data",
+      "id": "learning_trace",
+      "metrics": {
+        "documents_trained": 1595,
+        "first10_loss": 5.532414484024048,
+        "last10_loss": 1.3462149262428285,
+        "validation_curve": [
+          [
+            20,
+            3.1395035476455764
+          ],
+          [
+            40,
+            1.8168074427664738
+          ],
+          [
+            60,
+            1.4669954578942437
+          ],
+          [
+            80,
+            1.374138999565249
+          ]
+        ]
+      },
+      "result": "PASS",
+      "title": "Learning trace"
+    },
+    "ledgers": {
+      "checks": [
+        {
+          "detail": "11 ledgers; bad=[]",
+          "name": "all_live_ledgers_hash_chains_valid_no_torn_tail",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "consumption_has_each_step_exactly_once",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "learning_has_each_step_exactly_once",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "learning_records_bind_to_consumption_batches",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "batch_ids_unique",
+          "passed": true
+        },
+        {
+          "detail": "[20, 40, 60, 80]; errors=[]",
+          "name": "checkpoints_bound_to_exact_ledger_offsets",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "lifecycle_ledger_records_checkpoints_crash_and_recovery",
+          "passed": true
+        }
+      ],
+      "evidence": [
+        {
+          "path": "ledgers/consumption.jsonl",
+          "what": "80 records, head 89cf510ba26d4d76"
+        },
+        {
+          "path": "ledgers/opus_decisions.jsonl",
+          "what": "2198 records, head f92339a90fa9732c"
+        },
+        {
+          "path": "ledgers/learning.jsonl",
+          "what": "80 records, head 8bdc2e3643054d8b"
+        },
+        {
+          "path": "ledgers/validation.jsonl",
+          "what": "4 records, head f3e2418079669d0e"
+        },
+        {
+          "path": "ledgers/lifecycle.jsonl",
+          "what": "checkpoint / crash / recovery transaction log"
+        },
+        {
+          "path": "checkpoints/",
+          "what": "meta.json with ledger offsets per checkpoint"
+        }
+      ],
+      "evidence_label": "Hash-chained ledgers",
+      "id": "ledgers",
+      "metrics": {
+        "checkpoints": [
+          20,
+          40,
+          60,
+          80
+        ],
+        "ledger_records": {
+          "consumption": 80,
+          "learning": 80,
+          "lifecycle": 10,
+          "opus_decisions": 2198,
+          "validation": 4
+        }
+      },
+      "result": "PASS",
+      "title": "Consumption and learning ledgers"
+    },
+    "mixture": {
+      "checks": [
+        {
+          "detail": "89661c53b5951a1f",
+          "name": "compiled_plan_hash_valid",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "every_checkpoint_pins_the_plan",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "every_batch_records_the_plan",
+          "passed": true
+        },
+        {
+          "detail": "errors=[]",
+          "name": "every_step_reconciles_plan_minus_shortfall_plus_backfill",
+          "passed": true
+        },
+        {
+          "detail": "floors={'code': 2, 'instruct': 1, 'web': 0}; violations=[]",
+          "name": "protected_floors_held_on_every_step",
+          "passed": true
+        },
+        {
+          "detail": "max |actual-planned| stage share = 0.0500 (tol 0.10)",
+          "name": "planned_vs_actual_share_within_tolerance",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "curriculum_stages_executed_in_order",
+          "passed": true
+        }
+      ],
+      "evidence": [
+        {
+          "path": "manifests/mixture_plan.json",
+          "what": "compiled per-step plan (stages, weights, floors)"
+        },
+        {
+          "path": "reports/mixture_report.json",
+          "what": "planned vs actual shares per stage and lane"
+        }
+      ],
+      "evidence_label": "Planned versus actual shares",
+      "id": "mixture",
+      "metrics": {
+        "max_stage_share_deviation": 0.04999999999999999,
+        "table": [
+          {
+            "actual_loss_token_share": 0.2420520231213873,
+            "actual_seq_share": 0.25,
+            "floor_seqs_per_step": 2,
+            "lane": "code",
+            "opus_shortfall_seqs": 0,
+            "planned_seq_share": 0.25,
+            "protected_floor_overrides": 9,
+            "stage": "warmup",
+            "target_weight": 0.25
+          },
+          {
+            "actual_loss_token_share": 0.08987327701200534,
+            "actual_seq_share": 0.15,
+            "floor_seqs_per_step": 1,
+            "lane": "instruct",
+            "opus_shortfall_seqs": 0,
+            "planned_seq_share": 0.15,
+            "protected_floor_overrides": 0,
+            "stage": "warmup",
+            "target_weight": 0.15
+          },
+          {
+            "actual_loss_token_share": 0.6680746998666074,
+            "actual_seq_share": 0.6,
+            "floor_seqs_per_step": 0,
+            "lane": "web",
+            "opus_shortfall_seqs": 0,
+            "planned_seq_share": 0.6,
+            "protected_floor_overrides": 0,
+            "stage": "warmup",
+            "target_weight": 0.6
+          },
+          {
+            "actual_loss_token_share": 0.2586957165270418,
+            "actual_seq_share": 0.259375,
+            "floor_seqs_per_step": 2,
+            "lane": "code",
+            "opus_shortfall_seqs": 13,
+            "planned_seq_share": 0.3,
+            "protected_floor_overrides": 37,
+            "stage": "main",
+            "target_weight": 0.3
+          },
+          {
+            "actual_loss_token_share": 0.1596459548266777,
+            "actual_seq_share": 0.25,
+            "floor_seqs_per_step": 1,
+            "lane": "instruct",
+            "opus_shortfall_seqs": 0,
+            "planned_seq_share": 0.25,
+            "protected_floor_overrides": 0,
+            "stage": "main",
+            "target_weight": 0.25
+          },
+          {
+            "actual_loss_token_share": 0.5816583286462804,
+            "actual_seq_share": 0.490625,
+            "floor_seqs_per_step": 0,
+            "lane": "web",
+            "opus_shortfall_seqs": 0,
+            "planned_seq_share": 0.45,
+            "protected_floor_overrides": 0,
+            "stage": "main",
+            "target_weight": 0.45
+          },
+          {
+            "actual_loss_token_share": 0.26776699029126216,
+            "actual_seq_share": 0.25,
+            "floor_seqs_per_step": 2,
+            "lane": "code",
+            "opus_shortfall_seqs": 8,
+            "planned_seq_share": 0.3,
+            "protected_floor_overrides": 45,
+            "stage": "anneal",
+            "target_weight": 0.3
+          },
+          {
+            "actual_loss_token_share": 0.27818770226537215,
+            "actual_seq_share": 0.4,
+            "floor_seqs_per_step": 1,
+            "lane": "instruct",
+            "opus_shortfall_seqs": 0,
+            "planned_seq_share": 0.4,
+            "protected_floor_overrides": 0,
+            "stage": "anneal",
+            "target_weight": 0.4
+          },
+          {
+            "actual_loss_token_share": 0.4540453074433657,
+            "actual_seq_share": 0.35,
+            "floor_seqs_per_step": 0,
+            "lane": "web",
+            "opus_shortfall_seqs": 0,
+            "planned_seq_share": 0.3,
+            "protected_floor_overrides": 0,
+            "stage": "anneal",
+            "target_weight": 0.3
+          }
+        ]
+      },
+      "result": "PASS",
+      "title": "Mixture compliance"
+    },
+    "opus": {
+      "checks": [
+        {
+          "detail": "2198 decisions; mismatches=[]",
+          "name": "every_decision_rederived_from_manifest_and_plan",
+          "passed": true
+        },
+        {
+          "detail": "{'REJECT': 254, 'ACCEPT': 1519, 'DEFER': 334, 'ACCEPT_FLOOR_OVERRIDE': 91}",
+          "name": "accept_reject_defer_override_all_exercised",
+          "passed": true
+        },
+        {
+          "detail": "violations=[]",
+          "name": "every_consumed_document_has_prior_admission_record",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "no_rejected_document_consumed",
+          "passed": true
+        },
+        {
+          "detail": "violations=[]",
+          "name": "no_document_span_consumed_twice_or_skipped",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "decision_stream_hash_matches_consumption_record_per_step",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "overrides_only_in_protected_lanes",
+          "passed": true
+        }
+      ],
+      "evidence": [
+        {
+          "path": "ledgers/opus_decisions.jsonl",
+          "what": "one hash-chained record per candidate decision"
+        },
+        {
+          "path": "reports/opus_report.json",
+          "what": "counts by stage/lane/decision/reason + examples"
+        }
+      ],
+      "evidence_label": "Candidate decision records",
+      "id": "opus",
+      "metrics": {
+        "admitted_docs": 1610,
+        "by_decision": {
+          "ACCEPT": 1519,
+          "ACCEPT_FLOOR_OVERRIDE": 91,
+          "DEFER": 334,
+          "REJECT": 254
+        }
+      },
+      "result": "PASS",
+      "title": "OPUS audit trail"
+    },
+    "packing": {
+      "checks": [
+        {
+          "detail": "80 batches; first errors=[]",
+          "name": "all_batches_rematerialize_to_recorded_hash_and_pass_mask_invariants",
+          "passed": true
+        },
+        {
+          "detail": "{'sequences': 309, 'pad': 0, 'split_docs': 299, 'multi_doc_sequences': 309}",
+          "name": "concat_policy_zero_padding_and_splits_docs",
+          "passed": true
+        },
+        {
+          "detail": "{'bestfit_nosplit_docmask': {'sequences': 163, 'pad': 3365, 'split_docs': 0, 'multi_doc_sequences': 100}, 'bestfit_nosplit_response_only': {'sequences': 168, 'pad': 1142, 'split_docs': 0, 'multi_doc_sequences': 168}}",
+          "name": "bestfit_policies_never_split_documents",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "documents_are_actually_packed_together",
+          "passed": true
+        },
+        {
+          "detail": "{'step': 1, 'row': 2, 'perturbed_segment': 2, 'perturbed_position': 23, 'max_abs_logit_change_other_docs': 0.0, 'max_abs_logit_change_same_doc': 3.142392635345459}",
+          "name": "trained_model_attention_isolated_between_packed_documents",
+          "passed": true
+        }
+      ],
+      "evidence": [
+        {
+          "path": "reports/packing_report.json",
+          "what": "invariant results, isolation test, decoded sample rows"
+        },
+        {
+          "path": "ledgers/consumption.jsonl",
+          "what": "recorded spans that every batch was rebuilt from"
+        }
+      ],
+      "evidence_label": "Packed-batch report",
+      "id": "packing",
+      "metrics": {
+        "attention_isolation": {
+          "max_abs_logit_change_other_docs": 0.0,
+          "max_abs_logit_change_same_doc": 3.142392635345459,
+          "perturbed_position": 23,
+          "perturbed_segment": 2,
+          "row": 2,
+          "step": 1
+        },
+        "per_policy": {
+          "bestfit_nosplit_docmask": {
+            "multi_doc_sequences": 100,
+            "pad": 3365,
+            "sequences": 163,
+            "split_docs": 0
+          },
+          "bestfit_nosplit_response_only": {
+            "multi_doc_sequences": 168,
+            "pad": 1142,
+            "sequences": 168,
+            "split_docs": 0
+          },
+          "concat_split_docmask": {
+            "multi_doc_sequences": 309,
+            "pad": 0,
+            "sequences": 309,
+            "split_docs": 299
+          }
+        }
+      },
+      "result": "PASS",
+      "title": "Packing correctness"
+    },
+    "replay": {
+      "checks": [
+        {
+          "detail": "",
+          "name": "replay_report_present",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "ledger_replay_hashes_match",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "checkpoint_pipeline_replay_ids_spans_hashes_opus_state_match",
+          "passed": true
+        },
+        {
+          "detail": "max |loss diff| = 0.0",
+          "name": "training_replay_token_losses_bitwise_equal",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "replay_report_consistent_with_live_ledger",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "replay_event_logged_pass",
+          "passed": true
+        }
+      ],
+      "evidence": [
+        {
+          "path": "reports/replay_report.json",
+          "what": "per-step original vs replayed ids / hashes / losses"
+        }
+      ],
+      "evidence_label": "Original and replay hashes",
+      "id": "replay",
+      "metrics": {
+        "from_checkpoint": "checkpoints/step_000020",
+        "interval": [
+          21,
+          40
+        ],
+        "rows": [
+          {
+            "original": "B00021-ac41d8155c5f",
+            "replay": "B00021-ac41d8155c5f",
+            "step": 21
+          },
+          {
+            "original": "B00022-1a2658fe2bd9",
+            "replay": "B00022-1a2658fe2bd9",
+            "step": 22
+          },
+          {
+            "original": "B00023-f053ee4e0d73",
+            "replay": "B00023-f053ee4e0d73",
+            "step": 23
+          },
+          {
+            "original": "B00024-92fa93927283",
+            "replay": "B00024-92fa93927283",
+            "step": 24
+          },
+          {
+            "original": "B00025-ee4e1ba67792",
+            "replay": "B00025-ee4e1ba67792",
+            "step": 25
+          },
+          {
+            "original": "B00026-7e43f3749ea5",
+            "replay": "B00026-7e43f3749ea5",
+            "step": 26
+          },
+          {
+            "original": "B00027-3e684d03233f",
+            "replay": "B00027-3e684d03233f",
+            "step": 27
+          },
+          {
+            "original": "B00028-6ae7416fbea1",
+            "replay": "B00028-6ae7416fbea1",
+            "step": 28
+          },
+          {
+            "original": "B00029-177b38a6b6ad",
+            "replay": "B00029-177b38a6b6ad",
+            "step": 29
+          },
+          {
+            "original": "B00030-22278f1de9c1",
+            "replay": "B00030-22278f1de9c1",
+            "step": 30
+          },
+          {
+            "original": "B00031-8524073bef36",
+            "replay": "B00031-8524073bef36",
+            "step": 31
+          },
+          {
+            "original": "B00032-2aadd66a3ae1",
+            "replay": "B00032-2aadd66a3ae1",
+            "step": 32
+          },
+          {
+            "original": "B00033-e779bad75938",
+            "replay": "B00033-e779bad75938",
+            "step": 33
+          },
+          {
+            "original": "B00034-a5abb541b418",
+            "replay": "B00034-a5abb541b418",
+            "step": 34
+          },
+          {
+            "original": "B00035-49bd64123a0d",
+            "replay": "B00035-49bd64123a0d",
+            "step": 35
+          },
+          {
+            "original": "B00036-2521ec7c6252",
+            "replay": "B00036-2521ec7c6252",
+            "step": 36
+          },
+          {
+            "original": "B00037-2f830d4c82f5",
+            "replay": "B00037-2f830d4c82f5",
+            "step": 37
+          },
+          {
+            "original": "B00038-8086c1a5aac9",
+            "replay": "B00038-8086c1a5aac9",
+            "step": 38
+          },
+          {
+            "original": "B00039-69b17f476a57",
+            "replay": "B00039-69b17f476a57",
+            "step": 39
+          },
+          {
+            "original": "B00040-1859272d65cd",
+            "replay": "B00040-1859272d65cd",
+            "step": 40
+          }
+        ]
+      },
+      "result": "PASS",
+      "title": "Replay"
+    },
+    "shards_manifests": {
+      "checks": [
+        {
+          "detail": "",
+          "name": "file_hashes_match_manifests",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "manifest_self_hashes_valid",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "catalog_pins_each_manifest_hash",
+          "passed": true
+        },
+        {
+          "detail": "f6570d3bec3e0e0835117944f82674af32f1ae57c61e1dd207cb1dcbf8cc798c",
+          "name": "catalog_self_hash_valid",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "shard_files_read_only",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "overwrite_refused_demonstrated",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "tamper_detection_demonstrated",
+          "passed": true
+        }
+      ],
+      "evidence": [
+        {
+          "path": "manifests/catalog.json",
+          "what": "catalog hash over all shard manifest hashes"
+        },
+        {
+          "path": "manifests/shards/",
+          "what": "per-shard manifest (file hashes, per-doc table)"
+        },
+        {
+          "path": "shards/",
+          "what": "immutable (read-only) token/index files"
+        }
+      ],
+      "evidence_label": "Shard manifests + validation",
+      "id": "shards_manifests",
+      "metrics": {
+        "documents": 3431,
+        "shards": 33,
+        "tokens": 198380
+      },
+      "result": "PASS",
+      "title": "Immutable shards and manifests"
+    },
+    "throughput": {
+      "checks": [
+        {
+          "detail": "recomputed from re-materialized batches",
+          "name": "packing_numbers_reconstructed_from_ledgers",
+          "passed": true
+        },
+        {
+          "detail": "recomputed from learning-ledger timing_ms",
+          "name": "throughput_numbers_reconstructed_from_ledger_timings",
+          "passed": true
+        },
+        {
+          "detail": "0.945 vs 0.379",
+          "name": "packing_beats_naive_one_doc_per_sequence",
+          "passed": true
+        },
+        {
+          "detail": "23496 tok/s",
+          "name": "useful_loss_bearing_tokens_per_sec_measured",
+          "passed": true
+        }
+      ],
+      "evidence": [
+        {
+          "path": "performance.json",
+          "what": "utilization, loss-bearing fraction, tokens/s, naive baseline"
+        }
+      ],
+      "evidence_label": "Performance report",
+      "id": "throughput",
+      "metrics": {
+        "loss_bearing_fraction": 0.82059326171875,
+        "naive_utilization": 0.3791780956112853,
+        "slot_tokens_per_sec": 28633.29794530406,
+        "useful_loss_bearing_tokens_per_sec": 23496.291354701843,
+        "utilization": 0.94498291015625
+      },
+      "result": "PASS",
+      "title": "Throughput"
+    },
+    "tokenizer_integrity": {
+      "checks": [
+        {
+          "detail": "f64dc137ee2420f3cc40f3b5476ca3e80838a0035256f5e3767d0103e54cfeb9",
+          "name": "tokenizer_file_matches_lock_hash",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "lock_marks_frozen",
+          "passed": true
+        },
+        {
+          "detail": "['train']",
+          "name": "trained_on_train_split_only",
+          "passed": true
+        },
+        {
+          "detail": "33 manifests, mismatched=[]",
+          "name": "every_shard_manifest_pins_frozen_tokenizer",
+          "passed": true
+        },
+        {
+          "detail": "4 checkpoints",
+          "name": "every_checkpoint_pins_frozen_tokenizer",
+          "passed": true
+        },
+        {
+          "detail": "3431 docs, 0 mismatches",
+          "name": "retokenizing_every_raw_document_reproduces_shard_tokens",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "tamper_detection_demonstrated",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "roundtrip_demonstrated",
+          "passed": true
+        }
+      ],
+      "evidence": [
+        {
+          "path": "tokenizer/tokenizer.lock.json",
+          "what": "frozen tokenizer hash + training provenance"
+        },
+        {
+          "path": "manifests/shards/",
+          "what": "tokenizer_sha256 field of every shard manifest"
+        },
+        {
+          "path": "manifests/validation_report.json",
+          "what": "re-tokenization check per shard"
+        }
+      ],
+      "evidence_label": "Manifest record",
+      "id": "tokenizer_integrity",
+      "metrics": {
+        "documents_retokenized": 3431
+      },
+      "result": "PASS",
+      "title": "Tokenizer integrity"
+    }
+  },
+  "schema": "v5.evidence/1"
+}

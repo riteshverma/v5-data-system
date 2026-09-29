@@ -1,0 +1,89 @@
+2026-09-30T00:00:18.886 demo     [STAGE] PHASE 1  documents -> frozen tokenizer
+2026-09-30T00:00:19.122 demo     [INFO] documents_written | code.eval=16, code.train=800, code.val=16, instruct.eval=40, instruct.train=1504, instruct.val=32, web.eval=40, web.train=959, web.val=24 -> corpus/raw/ (includes planted duplicates, eval leaks and spam)
+2026-09-30T00:00:19.825 demo     [INFO] tokenizer_trained | byte-level BPE, vocab 580, trained on ['train'] only; frozen sha256 f64dc137ee2420f3
+2026-09-30T00:00:19.829 demo     [PASS] tokenizer_hash_verified | reloaded tokenizer hash == lock f64dc137ee2420f3
+2026-09-30T00:00:19.837 demo     [PASS] tokenizer_roundtrip_verified | decode(encode(x)) == x for 318 documents
+2026-09-30T00:00:19.840 demo     [PASS] tokenizer_tamper_detected | one edited merge rejected: tokenizer hash 4a4fde9bf832 != locked f64dc137ee24
+2026-09-30T00:00:19.841 demo     [STAGE] PHASE 2  immutable shards + manifests
+2026-09-30T00:00:20.916 demo     [INFO] shards_created | 33 shards (read-only) + manifests; eval: 3 shards / 5484 tokens, train: 27 shards / 189323 tokens, val: 3 shards / 3573 tokens
+2026-09-30T00:00:22.032 demo     [PASS] manifests_validated | 33 manifests: file hashes, self-hashes, read-only bits, tokenizer pin, re-tokenization of every document; catalog f6570d3bec3e0e08
+2026-09-30T00:00:22.034 demo     [PASS] shard_overwrite_refused | rewrite of code-eval-000 refused
+2026-09-30T00:00:22.044 demo     [PASS] shard_tamper_detected | 1 flipped bit in a copy of code-eval-000: code-eval-000: tokens file hash 22e2e2d8ba39 != manifest ee3532b47f4b
+2026-09-30T00:00:22.048 demo     [STAGE] PHASE 3  evaluation firewall + mixture compilation
+2026-09-30T00:00:22.201 demo     [INFO] contamination_scanned | 3263 train docs vs 96 eval docs: 17 flagged {'eval_exact_match': 12, 'eval_ngram_overlap': 5}
+2026-09-30T00:00:22.207 demo     [PASS] mixture_compiled | 80 steps, plan 89661c53b5951a1f, floors/step {'code': 2, 'instruct': 1, 'web': 0}; warmup: {'code': 0.25, 'instruct': 0.15, 'web': 0.6}; main: {'code': 0.3, 'instruct': 0.25, 'web': 0.45}; anneal: {'code': 0.3, 'instruct': 0.4, 'web': 0.3}
+2026-09-30T00:00:22.208 demo     [PASS] eval_shard_blocked | shard web-eval-000 has split='eval'; only ['train'] may feed a loss-bearing batch
+2026-09-30T00:00:22.208 demo     [PASS] val_shard_blocked | shard web-val-000 has split='val'; only ['train'] may feed a loss-bearing batch
+2026-09-30T00:00:22.209 demo     [PASS] held_out_batch_blocked | packed eval batch refused at the optimizer gate: segment code-eval-000/2 is eval
+2026-09-30T00:00:22.210 demo     [STAGE] PHASE 4  reference (uninterrupted, data-only) stream
+2026-09-30T00:00:22.343 demo     [INFO] batches_packed | 80 batches x 8 x 128 packed in 0.04s; slot utilization 94.5% -> reports/reference_stream.json
+2026-09-30T00:00:22.345 demo     [STAGE] PHASE 5  training attempt 1 (deliberate crash)
+2026-09-30T00:00:25.056 trainer  [PASS] tokenizer_hash_verified | process loaded frozen tokenizer f64dc137ee2420f3; 33 shard manifests verified
+2026-09-30T00:00:25.074 trainer  [INFO] attempt_started | branch=main attempt=1 steps 1..80 (fault injection armed at step 47)
+2026-09-30T00:00:25.135 trainer  [INFO] batch_trained | step   1 B00001-a211dc9405b0 stage=warmup      loss=6.3908 loss_tokens=948 opus_decisions=26 (61 ms)
+2026-09-30T00:00:25.529 trainer  [INFO] batch_trained | step  10 B00010-1a09824c9a4f stage=warmup      loss=4.5556 loss_tokens=917 opus_decisions=19 (40 ms)
+2026-09-30T00:00:25.949 trainer  [INFO] batch_trained | step  20 B00020-04232f329ad0 stage=warmup      loss=2.9723 loss_tokens=890 opus_decisions=27 (37 ms)
+2026-09-30T00:00:26.032 trainer  [INFO] validation | step 20: val loss 3.1395 on 3001 held-out tokens (no grad)
+2026-09-30T00:00:26.147 trainer  [PASS] checkpoint_saved | step 20 -> checkpoints/step_000020; consumption ledger offset 20 records / 52921 B; next expected B00021-ac41d8155c5f
+2026-09-30T00:00:26.561 trainer  [INFO] batch_trained | step  30 B00030-22278f1de9c1 stage=main        loss=2.1663 loss_tokens=862 opus_decisions=19 (41 ms)
+2026-09-30T00:00:26.966 trainer  [INFO] batch_trained | step  40 B00040-1859272d65cd stage=main        loss=1.6731 loss_tokens=829 opus_decisions=25 (40 ms)
+2026-09-30T00:00:27.005 trainer  [INFO] validation | step 40: val loss 1.8168 on 3001 held-out tokens (no grad)
+2026-09-30T00:00:27.080 trainer  [PASS] checkpoint_saved | step 40 -> checkpoints/step_000040; consumption ledger offset 40 records / 108099 B; next expected B00041-f9f434d7c3e4
+2026-09-30T00:00:27.385 trainer  [WARN] crash_simulated | process 74636 killed mid-step 47 (consumption+OPUS written, learning record torn); exit 137
+2026-09-30T00:00:27.534 demo     [PASS] crash_confirmed | training process exited with code 137 at step 47
+2026-09-30T00:00:27.553 demo     [INFO] opus_decisions_recorded | 1131 candidate decisions in ledgers/opus_decisions.jsonl (including the not-yet-committed tail of the crashed step)
+2026-09-30T00:00:27.554 demo     [STAGE] PHASE 6  resume from last checkpoint
+2026-09-30T00:00:30.139 resume   [PASS] tokenizer_hash_verified | process loaded frozen tokenizer f64dc137ee2420f3; 33 shard manifests verified
+2026-09-30T00:00:30.333 resume   [INFO] ledger_rolled_back | consumption.jsonl: truncated 19187 B (7 uncommitted records, 0 torn bytes) -> ledgers/orphans/attempt1/consumption.jsonl
+2026-09-30T00:00:30.334 resume   [INFO] ledger_rolled_back | opus_decisions.jsonl: truncated 101725 B (176 uncommitted records, 0 torn bytes) -> ledgers/orphans/attempt1/opus_decisions.jsonl
+2026-09-30T00:00:30.334 resume   [INFO] ledger_rolled_back | learning.jsonl: truncated 18416 B (6 uncommitted records, 1481 torn bytes) -> ledgers/orphans/attempt1/learning.jsonl
+2026-09-30T00:00:30.334 resume   [INFO] ledger_rolled_back | validation.jsonl: truncated 0 B (0 uncommitted records, 0 torn bytes) -> -
+2026-09-30T00:00:30.334 resume   [PASS] ledger_rollback_to_checkpoint_offset | all 4 ledgers end exactly at checkpoint step 40 heads
+2026-09-30T00:00:30.336 resume   [PASS] pipeline_state_restored | state sha 4f6fe7e11a928575
+2026-09-30T00:00:30.352 resume   [INFO] run_resumed | attempt 2 resumes from checkpoints/step_000040; next step 41
+2026-09-30T00:00:30.372 resume   [INFO] attempt_started | branch=main attempt=2 steps 41..80
+2026-09-30T00:00:30.373 resume   [PASS] resume_next_batch_matched | step 41: expected B00041-f9f434d7c3e4 got B00041-f9f434d7c3e4
+2026-09-30T00:00:30.373 resume   [PASS] resume_matches_crashed_attempt | crashed attempt had already consumed B00041-f9f434d7c3e4 at step 41
+2026-09-30T00:00:30.432 resume   [INFO] batch_trained | step  41 B00041-f9f434d7c3e4 stage=main        loss=1.6420 loss_tokens=828 opus_decisions=22 (60 ms)
+2026-09-30T00:00:30.801 resume   [INFO] batch_trained | step  50 B00050-7bdd644fa421 stage=main        loss=1.4292 loss_tokens=822 opus_decisions=24 (37 ms)
+2026-09-30T00:00:31.229 resume   [INFO] batch_trained | step  60 B00060-414e31b456cc stage=main        loss=1.3186 loss_tokens=826 opus_decisions=27 (40 ms)
+2026-09-30T00:00:31.268 resume   [INFO] validation | step 60: val loss 1.4670 on 3001 held-out tokens (no grad)
+2026-09-30T00:00:31.361 resume   [PASS] checkpoint_saved | step 60 -> checkpoints/step_000060; consumption ledger offset 60 records / 163002 B; next expected B00061-1231ffd8aa2e
+2026-09-30T00:00:31.802 resume   [INFO] batch_trained | step  70 B00070-453ef2f789c0 stage=anneal      loss=1.1876 loss_tokens=795 opus_decisions=41 (41 ms)
+2026-09-30T00:00:32.239 resume   [INFO] batch_trained | step  80 B00080-baa844a284d7 stage=anneal      loss=1.2609 loss_tokens=766 opus_decisions=29 (56 ms)
+2026-09-30T00:00:32.276 resume   [INFO] validation | step 80: val loss 1.3741 on 3001 held-out tokens (no grad)
+2026-09-30T00:00:32.377 resume   [PASS] checkpoint_saved | step 80 -> checkpoints/step_000080; consumption ledger offset 80 records / 220795 B; next expected -
+2026-09-30T00:00:32.410 resume   [INFO] held_out_scored | val: loss 1.3741 over 3001 tokens, shards 3 (no grad)
+2026-09-30T00:00:32.461 resume   [INFO] held_out_scored | eval: loss 1.6403 over 4471 tokens, shards 3 (no grad)
+2026-09-30T00:00:32.882 demo     [PASS] resume_completed | resumed process exit code 0
+2026-09-30T00:00:32.883 demo     [STAGE] PHASE 7  replay of a historical interval
+2026-09-30T00:00:35.005 demo     [INFO] historical_stream_replayed | steps 21..40 (written by attempt(s) [1]) replayed from checkpoints/step_000020
+2026-09-30T00:00:35.006 demo     [PASS] replay_ledger_rebuild_matched | every batch rebuilt from ledger spans + shards reproduces its recorded hash
+2026-09-30T00:00:35.006 demo     [PASS] replay_hash_matched | ids/spans/hashes/OPUS decisions/pipeline state match; B00021-ac41d8155c5f==B00021-ac41d8155c5f ... B00040-1859272d65cd==B00040-1859272d65cd
+2026-09-30T00:00:35.006 demo     [PASS] replay_learning_matched | retrained interval: token losses bitwise equal, max |loss diff| 0.0
+2026-09-30T00:00:35.007 demo     [STAGE] PHASE 8  fork from an earlier checkpoint
+2026-09-30T00:00:37.622 fork     [PASS] tokenizer_hash_verified | process loaded frozen tokenizer f64dc137ee2420f3; 33 shard manifests verified
+2026-09-30T00:00:37.733 fork     [PASS] branch_forked | fork_instruct_heavy forked from checkpoints/step_000020; shared ledger prefix verified; new mixture from step 26
+2026-09-30T00:00:37.744 fork     [INFO] attempt_started | branch=fork_instruct_heavy attempt=1 steps 21..35
+2026-09-30T00:00:37.805 fork     [INFO] batch_trained | step  21 B00021-ac41d8155c5f stage=main        loss=2.9726 loss_tokens=834 opus_decisions=23 (61 ms)
+2026-09-30T00:00:38.172 fork     [INFO] batch_trained | step  30 B00030-5648844bae7f stage=main_fork   loss=2.2305 loss_tokens=699 opus_decisions=30 (42 ms)
+2026-09-30T00:00:38.450 fork     [PASS] checkpoint_saved | step 35 -> checkpoints/branches/fork_instruct_heavy/step_000035; consumption ledger offset 35 records / 97038 B; next expected B00036-18534e6ea63b
+2026-09-30T00:00:38.900 demo     [PASS] fork_reproduced_parent_history | steps 21..25 identical to parent
+2026-09-30T00:00:38.900 demo     [PASS] fork_diverged_under_new_mixture | steps 26..35 follow {'web': 0.25, 'code': 0.25, 'instruct': 0.5}
+2026-09-30T00:00:38.901 demo     [STAGE] PHASE 9  performance
+2026-09-30T00:00:38.995 demo     [INFO] performance_measured | utilization 94.5% (naive 37.9%), loss-bearing 82.1%, 23496 useful loss-bearing tok/s, data pipeline alone 1897324 tok/s
+2026-09-30T00:00:38.996 demo     [STAGE] PHASE 10 independent audit
+2026-09-30T00:00:39.946 demo     [PASS] audit:end_to_end | 3/3 checks
+2026-09-30T00:00:39.946 demo     [PASS] audit:tokenizer_integrity | 8/8 checks
+2026-09-30T00:00:39.947 demo     [PASS] audit:shards_manifests | 7/7 checks
+2026-09-30T00:00:39.947 demo     [PASS] audit:eval_firewall | 9/9 checks
+2026-09-30T00:00:39.947 demo     [PASS] audit:packing | 5/5 checks
+2026-09-30T00:00:39.948 demo     [PASS] audit:mixture | 7/7 checks
+2026-09-30T00:00:39.948 demo     [PASS] audit:opus | 7/7 checks
+2026-09-30T00:00:39.948 demo     [PASS] audit:ledgers | 7/7 checks
+2026-09-30T00:00:39.949 demo     [PASS] audit:learning_trace | 3/3 checks
+2026-09-30T00:00:39.949 demo     [PASS] audit:crash_recovery | 9/9 checks
+2026-09-30T00:00:39.949 demo     [PASS] audit:replay | 6/6 checks
+2026-09-30T00:00:39.950 demo     [PASS] audit:fork | 8/8 checks
+2026-09-30T00:00:39.950 demo     [PASS] audit:throughput | 4/4 checks
+2026-09-30T00:00:39.955 demo     [PASS] audit_completed | 13/13 requirements PASS -> evidence.json, evidence.md (21.1s total)

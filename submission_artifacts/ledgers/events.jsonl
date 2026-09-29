@@ -1,0 +1,89 @@
+{"component":"demo","event":"PHASE 1  documents -> frozen tokenizer","level":"STAGE","msg":"","ts":"2026-09-30T00:00:18.886"}
+{"component":"demo","event":"documents_written","level":"INFO","msg":"code.eval=16, code.train=800, code.val=16, instruct.eval=40, instruct.train=1504, instruct.val=32, web.eval=40, web.train=959, web.val=24 -> corpus/raw/ (includes planted duplicates, eval leaks and spam)","ts":"2026-09-30T00:00:19.122"}
+{"component":"demo","event":"tokenizer_trained","level":"INFO","msg":"byte-level BPE, vocab 580, trained on ['train'] only; frozen sha256 f64dc137ee2420f3","ts":"2026-09-30T00:00:19.825"}
+{"component":"demo","event":"tokenizer_hash_verified","level":"PASS","msg":"reloaded tokenizer hash == lock f64dc137ee2420f3","ts":"2026-09-30T00:00:19.829"}
+{"component":"demo","event":"tokenizer_roundtrip_verified","level":"PASS","msg":"decode(encode(x)) == x for 318 documents","ts":"2026-09-30T00:00:19.837"}
+{"component":"demo","event":"tokenizer_tamper_detected","level":"PASS","msg":"one edited merge rejected: tokenizer hash 4a4fde9bf832 != locked f64dc137ee24","ts":"2026-09-30T00:00:19.840"}
+{"component":"demo","event":"PHASE 2  immutable shards + manifests","level":"STAGE","msg":"","ts":"2026-09-30T00:00:19.841"}
+{"component":"demo","event":"shards_created","level":"INFO","msg":"33 shards (read-only) + manifests; eval: 3 shards / 5484 tokens, train: 27 shards / 189323 tokens, val: 3 shards / 3573 tokens","ts":"2026-09-30T00:00:20.916"}
+{"component":"demo","event":"manifests_validated","level":"PASS","msg":"33 manifests: file hashes, self-hashes, read-only bits, tokenizer pin, re-tokenization of every document; catalog f6570d3bec3e0e08","ts":"2026-09-30T00:00:22.032"}
+{"component":"demo","event":"shard_overwrite_refused","level":"PASS","msg":"rewrite of code-eval-000 refused","ts":"2026-09-30T00:00:22.034"}
+{"component":"demo","event":"shard_tamper_detected","level":"PASS","msg":"1 flipped bit in a copy of code-eval-000: code-eval-000: tokens file hash 22e2e2d8ba39 != manifest ee3532b47f4b","ts":"2026-09-30T00:00:22.044"}
+{"component":"demo","event":"PHASE 3  evaluation firewall + mixture compilation","level":"STAGE","msg":"","ts":"2026-09-30T00:00:22.048"}
+{"component":"demo","event":"contamination_scanned","level":"INFO","msg":"3263 train docs vs 96 eval docs: 17 flagged {'eval_exact_match': 12, 'eval_ngram_overlap': 5}","ts":"2026-09-30T00:00:22.201"}
+{"component":"demo","event":"mixture_compiled","level":"PASS","msg":"80 steps, plan 89661c53b5951a1f, floors/step {'code': 2, 'instruct': 1, 'web': 0}; warmup: {'code': 0.25, 'instruct': 0.15, 'web': 0.6}; main: {'code': 0.3, 'instruct': 0.25, 'web': 0.45}; anneal: {'code': 0.3, 'instruct': 0.4, 'web': 0.3}","ts":"2026-09-30T00:00:22.207"}
+{"component":"demo","event":"eval_shard_blocked","level":"PASS","msg":"shard web-eval-000 has split='eval'; only ['train'] may feed a loss-bearing batch","ts":"2026-09-30T00:00:22.208"}
+{"component":"demo","event":"val_shard_blocked","level":"PASS","msg":"shard web-val-000 has split='val'; only ['train'] may feed a loss-bearing batch","ts":"2026-09-30T00:00:22.208"}
+{"component":"demo","event":"held_out_batch_blocked","level":"PASS","msg":"packed eval batch refused at the optimizer gate: segment code-eval-000/2 is eval","ts":"2026-09-30T00:00:22.209"}
+{"component":"demo","event":"PHASE 4  reference (uninterrupted, data-only) stream","level":"STAGE","msg":"","ts":"2026-09-30T00:00:22.210"}
+{"component":"demo","event":"batches_packed","level":"INFO","msg":"80 batches x 8 x 128 packed in 0.04s; slot utilization 94.5% -> reports/reference_stream.json","ts":"2026-09-30T00:00:22.343"}
+{"component":"demo","event":"PHASE 5  training attempt 1 (deliberate crash)","level":"STAGE","msg":"","ts":"2026-09-30T00:00:22.345"}
+{"component":"trainer","event":"tokenizer_hash_verified","level":"PASS","msg":"process loaded frozen tokenizer f64dc137ee2420f3; 33 shard manifests verified","ts":"2026-09-30T00:00:25.056"}
+{"component":"trainer","event":"attempt_started","level":"INFO","msg":"branch=main attempt=1 steps 1..80 (fault injection armed at step 47)","ts":"2026-09-30T00:00:25.074"}
+{"component":"trainer","event":"batch_trained","level":"INFO","msg":"step   1 B00001-a211dc9405b0 stage=warmup      loss=6.3908 loss_tokens=948 opus_decisions=26 (61 ms)","ts":"2026-09-30T00:00:25.135"}
+{"component":"trainer","event":"batch_trained","level":"INFO","msg":"step  10 B00010-1a09824c9a4f stage=warmup      loss=4.5556 loss_tokens=917 opus_decisions=19 (40 ms)","ts":"2026-09-30T00:00:25.529"}
+{"component":"trainer","event":"batch_trained","level":"INFO","msg":"step  20 B00020-04232f329ad0 stage=warmup      loss=2.9723 loss_tokens=890 opus_decisions=27 (37 ms)","ts":"2026-09-30T00:00:25.949"}
+{"component":"trainer","event":"validation","level":"INFO","msg":"step 20: val loss 3.1395 on 3001 held-out tokens (no grad)","ts":"2026-09-30T00:00:26.032"}
+{"component":"trainer","event":"checkpoint_saved","level":"PASS","msg":"step 20 -> checkpoints/step_000020; consumption ledger offset 20 records / 52921 B; next expected B00021-ac41d8155c5f","ts":"2026-09-30T00:00:26.147"}
+{"component":"trainer","event":"batch_trained","level":"INFO","msg":"step  30 B00030-22278f1de9c1 stage=main        loss=2.1663 loss_tokens=862 opus_decisions=19 (41 ms)","ts":"2026-09-30T00:00:26.561"}
+{"component":"trainer","event":"batch_trained","level":"INFO","msg":"step  40 B00040-1859272d65cd stage=main        loss=1.6731 loss_tokens=829 opus_decisions=25 (40 ms)","ts":"2026-09-30T00:00:26.966"}
+{"component":"trainer","event":"validation","level":"INFO","msg":"step 40: val loss 1.8168 on 3001 held-out tokens (no grad)","ts":"2026-09-30T00:00:27.005"}
+{"component":"trainer","event":"checkpoint_saved","level":"PASS","msg":"step 40 -> checkpoints/step_000040; consumption ledger offset 40 records / 108099 B; next expected B00041-f9f434d7c3e4","ts":"2026-09-30T00:00:27.080"}
+{"component":"trainer","event":"crash_simulated","level":"WARN","msg":"process 74636 killed mid-step 47 (consumption+OPUS written, learning record torn); exit 137","ts":"2026-09-30T00:00:27.385"}
+{"component":"demo","event":"crash_confirmed","level":"PASS","msg":"training process exited with code 137 at step 47","ts":"2026-09-30T00:00:27.534"}
+{"component":"demo","event":"opus_decisions_recorded","level":"INFO","msg":"1131 candidate decisions in ledgers/opus_decisions.jsonl (including the not-yet-committed tail of the crashed step)","ts":"2026-09-30T00:00:27.553"}
+{"component":"demo","event":"PHASE 6  resume from last checkpoint","level":"STAGE","msg":"","ts":"2026-09-30T00:00:27.554"}
+{"component":"resume","event":"tokenizer_hash_verified","level":"PASS","msg":"process loaded frozen tokenizer f64dc137ee2420f3; 33 shard manifests verified","ts":"2026-09-30T00:00:30.139"}
+{"component":"resume","event":"ledger_rolled_back","level":"INFO","msg":"consumption.jsonl: truncated 19187 B (7 uncommitted records, 0 torn bytes) -> ledgers/orphans/attempt1/consumption.jsonl","ts":"2026-09-30T00:00:30.333"}
+{"component":"resume","event":"ledger_rolled_back","level":"INFO","msg":"opus_decisions.jsonl: truncated 101725 B (176 uncommitted records, 0 torn bytes) -> ledgers/orphans/attempt1/opus_decisions.jsonl","ts":"2026-09-30T00:00:30.334"}
+{"component":"resume","event":"ledger_rolled_back","level":"INFO","msg":"learning.jsonl: truncated 18416 B (6 uncommitted records, 1481 torn bytes) -> ledgers/orphans/attempt1/learning.jsonl","ts":"2026-09-30T00:00:30.334"}
+{"component":"resume","event":"ledger_rolled_back","level":"INFO","msg":"validation.jsonl: truncated 0 B (0 uncommitted records, 0 torn bytes) -> -","ts":"2026-09-30T00:00:30.334"}
+{"component":"resume","event":"ledger_rollback_to_checkpoint_offset","level":"PASS","msg":"all 4 ledgers end exactly at checkpoint step 40 heads","ts":"2026-09-30T00:00:30.334"}
+{"component":"resume","event":"pipeline_state_restored","level":"PASS","msg":"state sha 4f6fe7e11a928575","ts":"2026-09-30T00:00:30.336"}
+{"component":"resume","event":"run_resumed","level":"INFO","msg":"attempt 2 resumes from checkpoints/step_000040; next step 41","ts":"2026-09-30T00:00:30.352"}
+{"component":"resume","event":"attempt_started","level":"INFO","msg":"branch=main attempt=2 steps 41..80","ts":"2026-09-30T00:00:30.372"}
+{"component":"resume","event":"resume_next_batch_matched","level":"PASS","msg":"step 41: expected B00041-f9f434d7c3e4 got B00041-f9f434d7c3e4","ts":"2026-09-30T00:00:30.373"}
+{"component":"resume","event":"resume_matches_crashed_attempt","level":"PASS","msg":"crashed attempt had already consumed B00041-f9f434d7c3e4 at step 41","ts":"2026-09-30T00:00:30.373"}
+{"component":"resume","event":"batch_trained","level":"INFO","msg":"step  41 B00041-f9f434d7c3e4 stage=main        loss=1.6420 loss_tokens=828 opus_decisions=22 (60 ms)","ts":"2026-09-30T00:00:30.432"}
+{"component":"resume","event":"batch_trained","level":"INFO","msg":"step  50 B00050-7bdd644fa421 stage=main        loss=1.4292 loss_tokens=822 opus_decisions=24 (37 ms)","ts":"2026-09-30T00:00:30.801"}
+{"component":"resume","event":"batch_trained","level":"INFO","msg":"step  60 B00060-414e31b456cc stage=main        loss=1.3186 loss_tokens=826 opus_decisions=27 (40 ms)","ts":"2026-09-30T00:00:31.229"}
+{"component":"resume","event":"validation","level":"INFO","msg":"step 60: val loss 1.4670 on 3001 held-out tokens (no grad)","ts":"2026-09-30T00:00:31.268"}
+{"component":"resume","event":"checkpoint_saved","level":"PASS","msg":"step 60 -> checkpoints/step_000060; consumption ledger offset 60 records / 163002 B; next expected B00061-1231ffd8aa2e","ts":"2026-09-30T00:00:31.361"}
+{"component":"resume","event":"batch_trained","level":"INFO","msg":"step  70 B00070-453ef2f789c0 stage=anneal      loss=1.1876 loss_tokens=795 opus_decisions=41 (41 ms)","ts":"2026-09-30T00:00:31.802"}
+{"component":"resume","event":"batch_trained","level":"INFO","msg":"step  80 B00080-baa844a284d7 stage=anneal      loss=1.2609 loss_tokens=766 opus_decisions=29 (56 ms)","ts":"2026-09-30T00:00:32.239"}
+{"component":"resume","event":"validation","level":"INFO","msg":"step 80: val loss 1.3741 on 3001 held-out tokens (no grad)","ts":"2026-09-30T00:00:32.276"}
+{"component":"resume","event":"checkpoint_saved","level":"PASS","msg":"step 80 -> checkpoints/step_000080; consumption ledger offset 80 records / 220795 B; next expected -","ts":"2026-09-30T00:00:32.377"}
+{"component":"resume","event":"held_out_scored","level":"INFO","msg":"val: loss 1.3741 over 3001 tokens, shards 3 (no grad)","ts":"2026-09-30T00:00:32.410"}
+{"component":"resume","event":"held_out_scored","level":"INFO","msg":"eval: loss 1.6403 over 4471 tokens, shards 3 (no grad)","ts":"2026-09-30T00:00:32.461"}
+{"component":"demo","event":"resume_completed","level":"PASS","msg":"resumed process exit code 0","ts":"2026-09-30T00:00:32.882"}
+{"component":"demo","event":"PHASE 7  replay of a historical interval","level":"STAGE","msg":"","ts":"2026-09-30T00:00:32.883"}
+{"component":"demo","event":"historical_stream_replayed","level":"INFO","msg":"steps 21..40 (written by attempt(s) [1]) replayed from checkpoints/step_000020","ts":"2026-09-30T00:00:35.005"}
+{"component":"demo","event":"replay_ledger_rebuild_matched","level":"PASS","msg":"every batch rebuilt from ledger spans + shards reproduces its recorded hash","ts":"2026-09-30T00:00:35.006"}
+{"component":"demo","event":"replay_hash_matched","level":"PASS","msg":"ids/spans/hashes/OPUS decisions/pipeline state match; B00021-ac41d8155c5f==B00021-ac41d8155c5f ... B00040-1859272d65cd==B00040-1859272d65cd","ts":"2026-09-30T00:00:35.006"}
+{"component":"demo","event":"replay_learning_matched","level":"PASS","msg":"retrained interval: token losses bitwise equal, max |loss diff| 0.0","ts":"2026-09-30T00:00:35.006"}
+{"component":"demo","event":"PHASE 8  fork from an earlier checkpoint","level":"STAGE","msg":"","ts":"2026-09-30T00:00:35.007"}
+{"component":"fork","event":"tokenizer_hash_verified","level":"PASS","msg":"process loaded frozen tokenizer f64dc137ee2420f3; 33 shard manifests verified","ts":"2026-09-30T00:00:37.622"}
+{"component":"fork","event":"branch_forked","level":"PASS","msg":"fork_instruct_heavy forked from checkpoints/step_000020; shared ledger prefix verified; new mixture from step 26","ts":"2026-09-30T00:00:37.733"}
+{"component":"fork","event":"attempt_started","level":"INFO","msg":"branch=fork_instruct_heavy attempt=1 steps 21..35","ts":"2026-09-30T00:00:37.744"}
+{"component":"fork","event":"batch_trained","level":"INFO","msg":"step  21 B00021-ac41d8155c5f stage=main        loss=2.9726 loss_tokens=834 opus_decisions=23 (61 ms)","ts":"2026-09-30T00:00:37.805"}
+{"component":"fork","event":"batch_trained","level":"INFO","msg":"step  30 B00030-5648844bae7f stage=main_fork   loss=2.2305 loss_tokens=699 opus_decisions=30 (42 ms)","ts":"2026-09-30T00:00:38.172"}
+{"component":"fork","event":"checkpoint_saved","level":"PASS","msg":"step 35 -> checkpoints/branches/fork_instruct_heavy/step_000035; consumption ledger offset 35 records / 97038 B; next expected B00036-18534e6ea63b","ts":"2026-09-30T00:00:38.450"}
+{"component":"demo","event":"fork_reproduced_parent_history","level":"PASS","msg":"steps 21..25 identical to parent","ts":"2026-09-30T00:00:38.900"}
+{"component":"demo","event":"fork_diverged_under_new_mixture","level":"PASS","msg":"steps 26..35 follow {'web': 0.25, 'code': 0.25, 'instruct': 0.5}","ts":"2026-09-30T00:00:38.900"}
+{"component":"demo","event":"PHASE 9  performance","level":"STAGE","msg":"","ts":"2026-09-30T00:00:38.901"}
+{"component":"demo","event":"performance_measured","level":"INFO","msg":"utilization 94.5% (naive 37.9%), loss-bearing 82.1%, 23496 useful loss-bearing tok/s, data pipeline alone 1897324 tok/s","ts":"2026-09-30T00:00:38.995"}
+{"component":"demo","event":"PHASE 10 independent audit","level":"STAGE","msg":"","ts":"2026-09-30T00:00:38.996"}
+{"component":"demo","event":"audit:end_to_end","level":"PASS","msg":"3/3 checks","ts":"2026-09-30T00:00:39.946"}
+{"component":"demo","event":"audit:tokenizer_integrity","level":"PASS","msg":"8/8 checks","ts":"2026-09-30T00:00:39.946"}
+{"component":"demo","event":"audit:shards_manifests","level":"PASS","msg":"7/7 checks","ts":"2026-09-30T00:00:39.947"}
+{"component":"demo","event":"audit:eval_firewall","level":"PASS","msg":"9/9 checks","ts":"2026-09-30T00:00:39.947"}
+{"component":"demo","event":"audit:packing","level":"PASS","msg":"5/5 checks","ts":"2026-09-30T00:00:39.947"}
+{"component":"demo","event":"audit:mixture","level":"PASS","msg":"7/7 checks","ts":"2026-09-30T00:00:39.948"}
+{"component":"demo","event":"audit:opus","level":"PASS","msg":"7/7 checks","ts":"2026-09-30T00:00:39.948"}
+{"component":"demo","event":"audit:ledgers","level":"PASS","msg":"7/7 checks","ts":"2026-09-30T00:00:39.948"}
+{"component":"demo","event":"audit:learning_trace","level":"PASS","msg":"3/3 checks","ts":"2026-09-30T00:00:39.949"}
+{"component":"demo","event":"audit:crash_recovery","level":"PASS","msg":"9/9 checks","ts":"2026-09-30T00:00:39.949"}
+{"component":"demo","event":"audit:replay","level":"PASS","msg":"6/6 checks","ts":"2026-09-30T00:00:39.949"}
+{"component":"demo","event":"audit:fork","level":"PASS","msg":"8/8 checks","ts":"2026-09-30T00:00:39.950"}
+{"component":"demo","event":"audit:throughput","level":"PASS","msg":"4/4 checks","ts":"2026-09-30T00:00:39.950"}
+{"component":"demo","event":"audit_completed","level":"PASS","msg":"13/13 requirements PASS -> evidence.json, evidence.md (21.1s total)","ts":"2026-09-30T00:00:39.955"}

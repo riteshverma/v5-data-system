@@ -1,0 +1,91 @@
+{
+  "data_pipeline_only": {
+    "batches": 80,
+    "batches_per_sec": 1852.8554814296874,
+    "seconds": 0.0431766000110656,
+    "slot_tokens_per_sec": 1897324.012984,
+    "source": "reports/reference_stream.json"
+  },
+  "definitions": {
+    "loss_bearing_fraction": "tokens with loss_mask=1 / slots (excludes pad, prompt tokens and each document's last token)",
+    "naive_one_doc_per_sequence": "the same consumed documents, each alone in ceil(len/seq_len) padded sequences",
+    "useful_loss_bearing_tokens_per_sec": "sum(loss tokens) / sum(step time); step time = data + consumption/OPUS ledger fsync + fwd/bwd/opt",
+    "utilization": "non-pad tokens / (sequences x seq_len)"
+  },
+  "hardware": {
+    "device": "cpu",
+    "torch_threads": 2
+  },
+  "packing": {
+    "naive_one_doc_per_sequence": {
+      "loss_bearing_fraction": 0.3292662617554859,
+      "sequences_needed": 1595,
+      "slots": 204160,
+      "utilization": 0.3791780956112853
+    },
+    "per_policy": {
+      "bestfit_nosplit_docmask": {
+        "docs_per_sequence": 1.6441717791411044,
+        "lane": "code",
+        "loss_bearing_fraction": 0.8258723159509203,
+        "loss_tokens": 17231,
+        "real_tokens": 17499,
+        "segments": 268,
+        "sequences": 163,
+        "slots": 20864,
+        "utilization": 0.8387174079754601
+      },
+      "bestfit_nosplit_response_only": {
+        "docs_per_sequence": 4.511904761904762,
+        "lane": "instruct",
+        "loss_bearing_fraction": 0.5258556547619048,
+        "loss_tokens": 11308,
+        "real_tokens": 20362,
+        "segments": 758,
+        "sequences": 168,
+        "slots": 21504,
+        "utilization": 0.9468936011904762
+      },
+      "concat_split_docmask": {
+        "docs_per_sequence": 2.809061488673139,
+        "lane": "web",
+        "loss_bearing_fraction": 0.9780542071197411,
+        "loss_tokens": 38684,
+        "real_tokens": 39552,
+        "segments": 868,
+        "sequences": 309,
+        "slots": 39552,
+        "utilization": 1.0
+      }
+    },
+    "sequence_savings_vs_naive": 0.5987460815047022,
+    "totals": {
+      "loss_bearing_fraction": 0.82059326171875,
+      "loss_tokens": 67223,
+      "pad_tokens": 4507,
+      "real_tokens": 77413,
+      "segments": 1894,
+      "sequences": 640,
+      "slots": 81920,
+      "split_documents": 299,
+      "truncated_tokens_dropped": 0,
+      "utilization": 0.94498291015625
+    }
+  },
+  "schema": "v5.performance/1",
+  "throughput": {
+    "data_pipeline_share_of_step_time": 0.016848207076338422,
+    "loss_tokens": 67223,
+    "median_step_ms": 34.627499990165234,
+    "seconds": {
+      "compute": 2.240421400172636,
+      "data": 0.04820279963314533,
+      "ledger": 0.5723805002635345,
+      "total": 2.8610047000693157
+    },
+    "slot_tokens": 81920,
+    "slot_tokens_per_sec": 28633.29794530406,
+    "steps": 80,
+    "useful_loss_bearing_tokens_per_sec": 23496.291354701843
+  }
+}

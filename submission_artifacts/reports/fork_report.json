@@ -1,0 +1,116 @@
+{
+  "branch": "fork_instruct_heavy",
+  "branch_weights": {
+    "code": 0.25,
+    "instruct": 0.5,
+    "web": 0.25
+  },
+  "diverge_at": 26,
+  "end_step": 35,
+  "exit_code": 0,
+  "fork_step": 20,
+  "parent_ledger_sha256_after": {
+    "consumption": "19bb15fb4a016499b847d8fd932be31e83a7a1d4a8bbee991592384b105ce2f2",
+    "learning": "1ac43aeef65821562c693a9be24c61e9a8b80a13152f431352fd873e2c312d87",
+    "opus_decisions": "431fcf90869984cc71e51efc88b5e38c9627cad659023f24f163486536e41ac9",
+    "validation": "4e05999650859534a54e8a3047dc50af43a62ffe69c53e7acc4f163e7b4df4d9"
+  },
+  "parent_ledger_sha256_before": {
+    "consumption": "19bb15fb4a016499b847d8fd932be31e83a7a1d4a8bbee991592384b105ce2f2",
+    "learning": "1ac43aeef65821562c693a9be24c61e9a8b80a13152f431352fd873e2c312d87",
+    "opus_decisions": "431fcf90869984cc71e51efc88b5e38c9627cad659023f24f163486536e41ac9",
+    "validation": "4e05999650859534a54e8a3047dc50af43a62ffe69c53e7acc4f163e7b4df4d9"
+  },
+  "rows": [
+    {
+      "branch_batch_id": "B00021-ac41d8155c5f",
+      "identical": true,
+      "parent_batch_id": "B00021-ac41d8155c5f",
+      "step": 21
+    },
+    {
+      "branch_batch_id": "B00022-1a2658fe2bd9",
+      "identical": true,
+      "parent_batch_id": "B00022-1a2658fe2bd9",
+      "step": 22
+    },
+    {
+      "branch_batch_id": "B00023-f053ee4e0d73",
+      "identical": true,
+      "parent_batch_id": "B00023-f053ee4e0d73",
+      "step": 23
+    },
+    {
+      "branch_batch_id": "B00024-92fa93927283",
+      "identical": true,
+      "parent_batch_id": "B00024-92fa93927283",
+      "step": 24
+    },
+    {
+      "branch_batch_id": "B00025-ee4e1ba67792",
+      "identical": true,
+      "parent_batch_id": "B00025-ee4e1ba67792",
+      "step": 25
+    },
+    {
+      "branch_batch_id": "B00026-5e5101e27398",
+      "identical": false,
+      "parent_batch_id": "B00026-7e43f3749ea5",
+      "step": 26
+    },
+    {
+      "branch_batch_id": "B00027-b4a9b52aeadb",
+      "identical": false,
+      "parent_batch_id": "B00027-3e684d03233f",
+      "step": 27
+    },
+    {
+      "branch_batch_id": "B00028-e68714a58c7a",
+      "identical": false,
+      "parent_batch_id": "B00028-6ae7416fbea1",
+      "step": 28
+    },
+    {
+      "branch_batch_id": "B00029-8430f921d47c",
+      "identical": false,
+      "parent_batch_id": "B00029-177b38a6b6ad",
+      "step": 29
+    },
+    {
+      "branch_batch_id": "B00030-5648844bae7f",
+      "identical": false,
+      "parent_batch_id": "B00030-22278f1de9c1",
+      "step": 30
+    },
+    {
+      "branch_batch_id": "B00031-9f136f3ae8ac",
+      "identical": false,
+      "parent_batch_id": "B00031-8524073bef36",
+      "step": 31
+    },
+    {
+      "branch_batch_id": "B00032-e2cd4b473beb",
+      "identical": false,
+      "parent_batch_id": "B00032-2aadd66a3ae1",
+      "step": 32
+    },
+    {
+      "branch_batch_id": "B00033-836965af6fd5",
+      "identical": false,
+      "parent_batch_id": "B00033-e779bad75938",
+      "step": 33
+    },
+    {
+      "branch_batch_id": "B00034-1c502ac3b4e5",
+      "identical": false,
+      "parent_batch_id": "B00034-a5abb541b418",
+      "step": 34
+    },
+    {
+      "branch_batch_id": "B00035-92f06b474f30",
+      "identical": false,
+      "parent_batch_id": "B00035-49bd64123a0d",
+      "step": 35
+    }
+  ]
+}

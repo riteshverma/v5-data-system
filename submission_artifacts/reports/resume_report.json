@@ -1,0 +1,52 @@
+{
+  "attempts": {
+    "1": 40,
+    "2": 40
+  },
+  "checkpoint_step": 40,
+  "crash_step": 47,
+  "expected_next_batch": {
+    "batch_hash": "f9f434d7c3e41ff4084a2b724e2d6880138da4b7dad60ebee5f19fe0c825a9fb",
+    "batch_id": "B00041-f9f434d7c3e4",
+    "layout_sha256": "a1bd1a9181295779509750f0a5b4bcb1d794de1b161004b4e544887433ec6f3b",
+    "step": 41
+  },
+  "resumed_batch": {
+    "batch_hash": "f9f434d7c3e41ff4084a2b724e2d6880138da4b7dad60ebee5f19fe0c825a9fb",
+    "batch_id": "B00041-f9f434d7c3e4"
+  },
+  "rolled_back": [
+    {
+      "head_verified": "6076c1f1ce448afe3c7ef520a21844e62b0edd9f229d4dc52a5335f2fdb398f6",
+      "ledger": "consumption.jsonl",
+      "orphan_file": "ledgers/orphans/attempt1/consumption.jsonl",
+      "orphaned_complete_records": 7,
+      "torn_bytes": 0,
+      "truncated_bytes": 19187
+    },
+    {
+      "head_verified": "a4e8253a17a54b929fe6c8785fc3d2d790f2e7bde76fbbc07be4639fe44af8c7",
+      "ledger": "opus_decisions.jsonl",
+      "orphan_file": "ledgers/orphans/attempt1/opus_decisions.jsonl",
+      "orphaned_complete_records": 176,
+      "torn_bytes": 0,
+      "truncated_bytes": 101725
+    },
+    {
+      "head_verified": "3670cbeb79363441c4f977ea9d4f25b1f0937fc138cd1a5234a970280bf46e41",
+      "ledger": "learning.jsonl",
+      "orphan_file": "ledgers/orphans/attempt1/learning.jsonl",
+      "orphaned_complete_records": 6,
+      "torn_bytes": 1481,
+      "truncated_bytes": 18416
+    },
+    {
+      "head_verified": "daba504051a81c7e2b4cf2ae279b6bd5b04fcae75fb4e3f606bf777e9b471848",
+      "ledger": "validation.jsonl",
+      "orphan_file": null,
+      "orphaned_complete_records": 0,
+      "torn_bytes": 0,
+      "truncated_bytes": 0
+    }
+  ]
+}

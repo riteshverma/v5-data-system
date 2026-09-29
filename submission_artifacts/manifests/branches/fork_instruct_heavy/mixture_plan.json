@@ -1,0 +1,1670 @@
+{
+  "backfill_lanes": [
+    "web"
+  ],
+  "batch_size": 8,
+  "data_config_sha256": "c4d810775f4bf1ea706fa26b67d4c24e10c6194923adfede023705fc29e9b3a4",
+  "floors_seqs": {
+    "code": 2,
+    "instruct": 1,
+    "web": 0
+  },
+  "lane_order": [
+    "code",
+    "instruct",
+    "web"
+  ],
+  "plan_sha256": "b437fa36d38e90cb8abfa6f0a7fb5f5652a233b2f9f5feb5c30675858a30c950",
+  "schema": "v5.mixture_plan/1",
+  "stages": [
+    {
+      "end": 20,
+      "name": "warmup",
+      "opus": {
+        "accept": 0.5,
+        "reject": 0.45
+      },
+      "start": 1,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.15,
+        "web": 0.6
+      }
+    },
+    {
+      "end": 25,
+      "name": "main",
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "start": 21,
+      "weights": {
+        "code": 0.3,
+        "instruct": 0.25,
+        "web": 0.45
+      }
+    },
+    {
+      "end": 60,
+      "name": "main_fork",
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "start": 26,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "end": 80,
+      "name": "anneal_fork",
+      "opus": {
+        "accept": 0.66,
+        "reject": 0.45
+      },
+      "start": 61,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    }
+  ],
+  "steps": [
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.5,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 1,
+        "web": 5
+      },
+      "stage": "warmup",
+      "step": 1,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.15,
+        "web": 0.6
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.5,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 1,
+        "web": 5
+      },
+      "stage": "warmup",
+      "step": 2,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.15,
+        "web": 0.6
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.5,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 2,
+        "web": 4
+      },
+      "stage": "warmup",
+      "step": 3,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.15,
+        "web": 0.6
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.5,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 1,
+        "web": 5
+      },
+      "stage": "warmup",
+      "step": 4,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.15,
+        "web": 0.6
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.5,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 1,
+        "web": 5
+      },
+      "stage": "warmup",
+      "step": 5,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.15,
+        "web": 0.6
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.5,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 1,
+        "web": 5
+      },
+      "stage": "warmup",
+      "step": 6,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.15,
+        "web": 0.6
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.5,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 1,
+        "web": 5
+      },
+      "stage": "warmup",
+      "step": 7,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.15,
+        "web": 0.6
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.5,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 2,
+        "web": 4
+      },
+      "stage": "warmup",
+      "step": 8,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.15,
+        "web": 0.6
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.5,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 1,
+        "web": 5
+      },
+      "stage": "warmup",
+      "step": 9,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.15,
+        "web": 0.6
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.5,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 1,
+        "web": 5
+      },
+      "stage": "warmup",
+      "step": 10,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.15,
+        "web": 0.6
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.5,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 1,
+        "web": 5
+      },
+      "stage": "warmup",
+      "step": 11,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.15,
+        "web": 0.6
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.5,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 1,
+        "web": 5
+      },
+      "stage": "warmup",
+      "step": 12,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.15,
+        "web": 0.6
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.5,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 2,
+        "web": 4
+      },
+      "stage": "warmup",
+      "step": 13,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.15,
+        "web": 0.6
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.5,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 1,
+        "web": 5
+      },
+      "stage": "warmup",
+      "step": 14,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.15,
+        "web": 0.6
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.5,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 1,
+        "web": 5
+      },
+      "stage": "warmup",
+      "step": 15,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.15,
+        "web": 0.6
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.5,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 1,
+        "web": 5
+      },
+      "stage": "warmup",
+      "step": 16,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.15,
+        "web": 0.6
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.5,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 1,
+        "web": 5
+      },
+      "stage": "warmup",
+      "step": 17,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.15,
+        "web": 0.6
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.5,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 2,
+        "web": 4
+      },
+      "stage": "warmup",
+      "step": 18,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.15,
+        "web": 0.6
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.5,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 1,
+        "web": 5
+      },
+      "stage": "warmup",
+      "step": 19,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.15,
+        "web": 0.6
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.5,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 1,
+        "web": 5
+      },
+      "stage": "warmup",
+      "step": 20,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.15,
+        "web": 0.6
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 2,
+        "web": 4
+      },
+      "stage": "main",
+      "step": 21,
+      "weights": {
+        "code": 0.3,
+        "instruct": 0.25,
+        "web": 0.45
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 3,
+        "instruct": 2,
+        "web": 3
+      },
+      "stage": "main",
+      "step": 22,
+      "weights": {
+        "code": 0.3,
+        "instruct": 0.25,
+        "web": 0.45
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 2,
+        "web": 4
+      },
+      "stage": "main",
+      "step": 23,
+      "weights": {
+        "code": 0.3,
+        "instruct": 0.25,
+        "web": 0.45
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 3,
+        "instruct": 2,
+        "web": 3
+      },
+      "stage": "main",
+      "step": 24,
+      "weights": {
+        "code": 0.3,
+        "instruct": 0.25,
+        "web": 0.45
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 2,
+        "web": 4
+      },
+      "stage": "main",
+      "step": 25,
+      "weights": {
+        "code": 0.3,
+        "instruct": 0.25,
+        "web": 0.45
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 26,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 27,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 28,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 29,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 30,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 31,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 32,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 33,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 34,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 35,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 36,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 37,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 38,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 39,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 40,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 41,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 42,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 43,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 44,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 45,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 46,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 47,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 48,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 49,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 50,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 51,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 52,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 53,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 54,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 55,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 56,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 57,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 58,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 59,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.56,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "main_fork",
+      "step": 60,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.66,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "anneal_fork",
+      "step": 61,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.66,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "anneal_fork",
+      "step": 62,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.66,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "anneal_fork",
+      "step": 63,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.66,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "anneal_fork",
+      "step": 64,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.66,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "anneal_fork",
+      "step": 65,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.66,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "anneal_fork",
+      "step": 66,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.66,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "anneal_fork",
+      "step": 67,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.66,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "anneal_fork",
+      "step": 68,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.66,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "anneal_fork",
+      "step": 69,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.66,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "anneal_fork",
+      "step": 70,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.66,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "anneal_fork",
+      "step": 71,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.66,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "anneal_fork",
+      "step": 72,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.66,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "anneal_fork",
+      "step": 73,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.66,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "anneal_fork",
+      "step": 74,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.66,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "anneal_fork",
+      "step": 75,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.66,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "anneal_fork",
+      "step": 76,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.66,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "anneal_fork",
+      "step": 77,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.66,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "anneal_fork",
+      "step": 78,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.66,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "anneal_fork",
+      "step": 79,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    {
+      "floor_adjustments": [],
+      "opus": {
+        "accept": 0.66,
+        "reject": 0.45
+      },
+      "seqs": {
+        "code": 2,
+        "instruct": 4,
+        "web": 2
+      },
+      "stage": "anneal_fork",
+      "step": 80,
+      "weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    }
+  ],
+  "summary": {
+    "anneal_fork": {
+      "floor_adjusted_steps": 0,
+      "planned_seq_share": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      },
+      "steps": [
+        61,
+        80
+      ],
+      "target_weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    "main": {
+      "floor_adjusted_steps": 0,
+      "planned_seq_share": {
+        "code": 0.3,
+        "instruct": 0.25,
+        "web": 0.45
+      },
+      "steps": [
+        21,
+        25
+      ],
+      "target_weights": {
+        "code": 0.3,
+        "instruct": 0.25,
+        "web": 0.45
+      }
+    },
+    "main_fork": {
+      "floor_adjusted_steps": 0,
+      "planned_seq_share": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      },
+      "steps": [
+        26,
+        60
+      ],
+      "target_weights": {
+        "code": 0.25,
+        "instruct": 0.5,
+        "web": 0.25
+      }
+    },
+    "warmup": {
+      "floor_adjusted_steps": 0,
+      "planned_seq_share": {
+        "code": 0.25,
+        "instruct": 0.15,
+        "web": 0.6
+      },
+      "steps": [
+        1,
+        20
+      ],
+      "target_weights": {
+        "code": 0.25,
+        "instruct": 0.15,
+        "web": 0.6
+      }
+    }
+  },
+  "total_steps": 80
+}

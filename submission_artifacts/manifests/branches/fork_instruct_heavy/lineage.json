@@ -1,0 +1,37 @@
+{
+  "branch": "fork_instruct_heavy",
+  "diverge_at_step": 26,
+  "fork_plan_sha256": "b437fa36d38e90cb8abfa6f0a7fb5f5652a233b2f9f5feb5c30675858a30c950",
+  "fork_step": 20,
+  "ledger_prefixes": {
+    "consumption": {
+      "bytes": 52921,
+      "head": "bf6bfa4c829ff0b86474dce311953303319a729f56d85257df93295a31b7ea2b",
+      "prefix_sha256": "f0dcc8f9b0ea746fa3a79c3e3f4380e4128c4aefe46d12a4d6838f30fbf2c022",
+      "records": 20
+    },
+    "learning": {
+      "bytes": 53966,
+      "head": "38173694e7b478e5ab850dfe4aa348a67e1ad3cf0782847885770c3aaa12f06e",
+      "prefix_sha256": "aa3e08f3bacf7ca74beb69d3b5608aca8134cb8758d47b37968096d28d4b77aa",
+      "records": 20
+    },
+    "opus_decisions": {
+      "bytes": 263161,
+      "head": "4e1bc0dfa5c27a4e48035b75d8675d9c51641646830d5d3f5b2e1039e49fb41b",
+      "prefix_sha256": "a810e4ea3631d622d52ca84359f6b95a4a5d9d9e739e85eed35c7169f2dd0eb7",
+      "records": 458
+    },
+    "validation": {
+      "bytes": 760,
+      "head": "bd8806f5c00c4a4233e243186ef5ea9e0c9cfb4cb55e79d8eb5c08960aab099b",
+      "prefix_sha256": "21467f7bcec26f5f6dc12fe338874b756971117744016283c9c90a3cb952dd00",
+      "records": 1
+    }
+  },
+  "parent_branch": "main",
+  "parent_checkpoint": "checkpoints/step_000020",
+  "parent_checkpoint_meta_sha256": "68643834d7a8313ab58540424e71166d32eeae83a52b0419fcd33817ef0b3ce0",
+  "parent_plan_sha256": "89661c53b5951a1fc66e3530ea17c0f2914077b55ed5ea87c9f67ee6b37df329",
+  "schema": "v5.lineage/1"
+}

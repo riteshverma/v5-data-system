@@ -1,0 +1,110 @@
+{
+  "floors_seqs_per_step": {
+    "code": 2,
+    "instruct": 1,
+    "web": 0
+  },
+  "max_stage_share_deviation": 0.04999999999999999,
+  "plan_sha256": "89661c53b5951a1fc66e3530ea17c0f2914077b55ed5ea87c9f67ee6b37df329",
+  "table": [
+    {
+      "actual_loss_token_share": 0.2420520231213873,
+      "actual_seq_share": 0.25,
+      "floor_seqs_per_step": 2,
+      "lane": "code",
+      "opus_shortfall_seqs": 0,
+      "planned_seq_share": 0.25,
+      "protected_floor_overrides": 9,
+      "stage": "warmup",
+      "target_weight": 0.25
+    },
+    {
+      "actual_loss_token_share": 0.08987327701200534,
+      "actual_seq_share": 0.15,
+      "floor_seqs_per_step": 1,
+      "lane": "instruct",
+      "opus_shortfall_seqs": 0,
+      "planned_seq_share": 0.15,
+      "protected_floor_overrides": 0,
+      "stage": "warmup",
+      "target_weight": 0.15
+    },
+    {
+      "actual_loss_token_share": 0.6680746998666074,
+      "actual_seq_share": 0.6,
+      "floor_seqs_per_step": 0,
+      "lane": "web",
+      "opus_shortfall_seqs": 0,
+      "planned_seq_share": 0.6,
+      "protected_floor_overrides": 0,
+      "stage": "warmup",
+      "target_weight": 0.6
+    },
+    {
+      "actual_loss_token_share": 0.2586957165270418,
+      "actual_seq_share": 0.259375,
+      "floor_seqs_per_step": 2,
+      "lane": "code",
+      "opus_shortfall_seqs": 13,
+      "planned_seq_share": 0.3,
+      "protected_floor_overrides": 37,
+      "stage": "main",
+      "target_weight": 0.3
+    },
+    {
+      "actual_loss_token_share": 0.1596459548266777,
+      "actual_seq_share": 0.25,
+      "floor_seqs_per_step": 1,
+      "lane": "instruct",
+      "opus_shortfall_seqs": 0,
+      "planned_seq_share": 0.25,
+      "protected_floor_overrides": 0,
+      "stage": "main",
+      "target_weight": 0.25
+    },
+    {
+      "actual_loss_token_share": 0.5816583286462804,
+      "actual_seq_share": 0.490625,
+      "floor_seqs_per_step": 0,
+      "lane": "web",
+      "opus_shortfall_seqs": 0,
+      "planned_seq_share": 0.45,
+      "protected_floor_overrides": 0,
+      "stage": "main",
+      "target_weight": 0.45
+    },
+    {
+      "actual_loss_token_share": 0.26776699029126216,
+      "actual_seq_share": 0.25,
+      "floor_seqs_per_step": 2,
+      "lane": "code",
+      "opus_shortfall_seqs": 8,
+      "planned_seq_share": 0.3,
+      "protected_floor_overrides": 45,
+      "stage": "anneal",
+      "target_weight": 0.3
+    },
+    {
+      "actual_loss_token_share": 0.27818770226537215,
+      "actual_seq_share": 0.4,
+      "floor_seqs_per_step": 1,
+      "lane": "instruct",
+      "opus_shortfall_seqs": 0,
+      "planned_seq_share": 0.4,
+      "protected_floor_overrides": 0,
+      "stage": "anneal",
+      "target_weight": 0.4
+    },
+    {
+      "actual_loss_token_share": 0.4540453074433657,
+      "actual_seq_share": 0.35,
+      "floor_seqs_per_step": 0,
+      "lane": "web",
+      "opus_shortfall_seqs": 0,
+      "planned_seq_share": 0.3,
+      "protected_floor_overrides": 0,
+      "stage": "anneal",
+      "target_weight": 0.3
+    }
+  ]
+}

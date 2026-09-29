@@ -1,0 +1,337 @@
+{
+  "catalog_self_hash": true,
+  "catalog_sha256": "f6570d3bec3e0e0835117944f82674af32f1ae57c61e1dd207cb1dcbf8cc798c",
+  "ok": true,
+  "shards": {
+    "code-eval-000": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 16,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "code-train-000": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 128,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "code-train-001": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 128,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "code-train-002": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 128,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "code-train-003": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 128,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "code-train-004": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 128,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "code-train-005": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 128,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "code-train-006": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 32,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "code-val-000": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 16,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "instruct-eval-000": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 40,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "instruct-train-000": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 128,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "instruct-train-001": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 128,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "instruct-train-002": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 128,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "instruct-train-003": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 128,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "instruct-train-004": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 128,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "instruct-train-005": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 128,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "instruct-train-006": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 128,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "instruct-train-007": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 128,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "instruct-train-008": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 128,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "instruct-train-009": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 128,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "instruct-train-010": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 128,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "instruct-train-011": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 96,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "instruct-val-000": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 32,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "web-eval-000": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 40,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "web-train-000": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 128,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "web-train-001": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 128,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "web-train-002": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 128,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "web-train-003": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 128,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "web-train-004": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 128,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "web-train-005": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 128,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "web-train-006": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 128,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "web-train-007": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 63,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    },
+    "web-val-000": {
+      "catalog_pin": true,
+      "file_hashes": true,
+      "manifest_self_hash": true,
+      "num_docs": 24,
+      "ok": true,
+      "read_only": true,
+      "retokenize_mismatches": 0,
+      "tokenizer_hash": true
+    }
+  }
+}

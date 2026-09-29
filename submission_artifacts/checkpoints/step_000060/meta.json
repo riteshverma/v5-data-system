@@ -1,0 +1,44 @@
+{
+  "attempt": 2,
+  "branch": "main",
+  "catalog_sha256": "f6570d3bec3e0e0835117944f82674af32f1ae57c61e1dd207cb1dcbf8cc798c",
+  "files": {
+    "model_optim.pt": "3de0bac5badbbd7e8a26f3490431e07093eaac6183080e13799cae4ccace0007",
+    "pipeline_state.json": "ca05b851b2346f2ee27a8c80c638c922d96fa34272dbf74a75d6e8512b449327"
+  },
+  "ledger_offsets": {
+    "consumption": {
+      "bytes": 163002,
+      "head": "1808371b5451381bd860eac94a7e9948c4c56db9523d512a943bd5e94d893b34",
+      "records": 60
+    },
+    "learning": {
+      "bytes": 168274,
+      "head": "94cf7e19e0d2560430c9019e194717a3e4322772509c69a75c644263cdadb517",
+      "records": 60
+    },
+    "opus_decisions": {
+      "bytes": 844416,
+      "head": "4f3aa847e467749caadc4b19b23091a72e0cf1eb19171c04d7b89572485e7b38",
+      "records": 1464
+    },
+    "validation": {
+      "bytes": 2279,
+      "head": "168bed4b3104391f92456431a026a86328836439001aa04b5378c7034d137f5e",
+      "records": 3
+    }
+  },
+  "meta_sha256": "f3323220a06de797554f91433ab5d2f9092502e7d30e5fb469e79cbe7265c438",
+  "next_batch_expected": {
+    "batch_hash": "1231ffd8aa2e22d29d5029e3d8e132ea0a0e9d4ad8a492d70ac4cd4ccd999026",
+    "batch_id": "B00061-1231ffd8aa2e",
+    "layout_sha256": "4f683b26a8eff88bc80da3ae2290ba4d20062d0da749e5e4e009da11145cfabe",
+    "step": 61
+  },
+  "order_sha256": "bd6730d45ec8bddeffbbf14b7dd3a7d7bfde53211220adf2e9366e1d6046cae7",
+  "pipeline_state_sha256": "75056462997385e223959b78cdc9e6f59ebf5b62b25677cddac0bf62195eb783",
+  "plan_sha256": "89661c53b5951a1fc66e3530ea17c0f2914077b55ed5ea87c9f67ee6b37df329",
+  "schema": "v5.checkpoint/1",
+  "step": 60,
+  "tokenizer_sha256": "f64dc137ee2420f3cc40f3b5476ca3e80838a0035256f5e3767d0103e54cfeb9"
+}

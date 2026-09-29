@@ -1,0 +1,2 @@
+# Generated artifacts are hashed byte-for-byte; never let git rewrite line endings.
+* -text
